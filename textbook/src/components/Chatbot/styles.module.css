@@ -1,0 +1,120 @@
+.chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+
+.chatButton:hover {
+  transform: scale(1.1);
+}
+
+.chatWindow {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.chatHeader {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.messagesContainer {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: var(--ifm-background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.botMessage {
+  align-self: flex-start;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  border-bottom-left-radius: 2px;
+}
+
+.inputArea {
+  padding: 15px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 20px;
+  outline: none;
+}
+
+.sendButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sendButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
