@@ -1,6 +1,7 @@
 ---
+id: isaac
 title: Module 3 — The AI-Robot Brain (NVIDIA Isaac)
-slug: /isaac
+slug: /docs/isaac
 sidebar_position: 4
 ---
 
@@ -8,12 +9,22 @@ sidebar_position: 4
 
 NVIDIA Isaac provides GPU-accelerated simulation and perception tools.
 
-## Topics
-- Isaac Sim: photorealistic simulation & synthetic data.
-- Isaac ROS: optimized perception algorithms (VSLAM, perception pipelines).
-- Nav2 for path planning and navigation.
+## Isaac Ecosystem
 
-## Exercises
-- Run a sample Isaac Sim scene.
-- Collect synthetic images and train a small model.
-- Implement simple VSLAM in Isaac ROS.
+- Isaac Sim: High-fidelity simulation environment
+- Isaac ROS: GPU-accelerated perception and navigation
+- Isaac Apps: Pre-built applications for common tasks
+
+## Key Features
+
+- GPU-accelerated physics
+- Realistic sensor simulation
+- Domain randomization
+- AI training environments
+
+## Use Cases
+
+- Perception training
+- Navigation testing
+- Manipulation development
+- Humanoid control

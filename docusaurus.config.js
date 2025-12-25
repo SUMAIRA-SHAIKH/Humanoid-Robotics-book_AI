@@ -16,6 +16,7 @@ const config = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          path: 'textbook/docs',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/YourName/Humanoid-Robotics-book-AI/edit/main/',
         },

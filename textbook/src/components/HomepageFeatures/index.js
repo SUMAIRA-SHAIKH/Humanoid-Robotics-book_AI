@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Physical AI Integration',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Learn how to connect AI "brains" with physical robotic systems, bridging the gap between digital intelligence and real-world applications.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Robotics Simulation',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Master simulation environments like Gazebo and NVIDIA Isaac for testing humanoid robotics applications in virtual worlds before deployment.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'ROS 2 Framework',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Explore Robot Operating System (ROS 2) for building sophisticated humanoid robotics applications with advanced perception and control.
       </>
     ),
   },
@@ -39,7 +36,7 @@ function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={clsx(styles.featureSvg, 'robotic-section')} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
@@ -51,7 +48,7 @@ function Feature({Svg, title, description}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section className={clsx(styles.features, 'robotic-section')}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

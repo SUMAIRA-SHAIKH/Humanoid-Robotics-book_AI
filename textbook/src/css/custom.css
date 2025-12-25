@@ -6,25 +6,202 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #3498db;
-  --ifm-color-primary-dark: #2980b9;
-  --ifm-color-primary-darker: #2574a9;
-  --ifm-color-primary-darkest: #1f618d;
-  --ifm-color-primary-light: #5dade2;
-  --ifm-color-primary-lighter: #85c1e9;
-  --ifm-color-primary-lightest: #aed6f1;
+  --ifm-color-primary: #0d6efd;
+  --ifm-color-primary-dark: #0b5ed7;
+  --ifm-color-primary-darker: #0a58ca;
+  --ifm-color-primary-darkest: #084298;
+  --ifm-color-primary-light: #3d8bfd;
+  --ifm-color-primary-lighter: #6ea8fe;
+  --ifm-color-primary-lightest: #9ec5fe;
+  --ifm-color-secondary: #6c757d;
+  --ifm-color-success: #198754;
+  --ifm-color-info: #0dcaf0;
+  --ifm-color-warning: #ffc107;
+  --ifm-color-danger: #dc3545;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Custom robotics-themed colors */
+  --robotic-blue: #0a3d62;
+  --robotic-accent: #3498db;
+  --robotic-dark: #0c2461;
+  --robotic-light: #82ccdd;
+  --robotic-gray: #f1f2f6;
+  --robotic-metallic: #7d879c;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #3d8bfd;
+  --ifm-color-primary-dark: #0b5ed7;
+  --ifm-color-primary-darker: #0a58ca;
+  --ifm-color-primary-darkest: #084298;
+  --ifm-color-primary-light: #3d8bfd;
+  --ifm-color-primary-lighter: #6ea8fe;
+  --ifm-color-primary-lightest: #9ec5fe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Dark mode custom colors */
+  --robotic-blue: #54a0ff;
+  --robotic-accent: #48dbfb;
+  --robotic-dark: #0abde3;
+  --robotic-light: #5f27cd;
+  --robotic-gray: #2d3436;
+  --robotic-metallic: #636e72;
+}
+
+/* Enhanced typography for book-like feel */
+html {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  background-attachment: fixed;
+}
+
+/* Body background with subtle robot pattern */
+body {
+  background:
+    linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(10, 61, 98, 0.05),
+      rgba(10, 61, 98, 0.05) 1px,
+      transparent 1px,
+      transparent 11px
+    );
+}
+
+/* Typography enhancements */
+:root {
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.75rem;
+  --ifm-font-size-base: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-weight: 600;
+  color: var(--robotic-dark);
+}
+
+/* Main text content */
+.markdown {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+}
+
+/* Code typography */
+.code {
+  font-family: 'Monaco', 'Inconsolata', 'Consolas', 'Courier New', monospace;
+  background-color: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Main content background */
+.main-wrapper {
+  background: transparent;
+}
+
+/* Navbar customization */
+.navbar {
+  background: linear-gradient(135deg, var(--robotic-blue) 0%, var(--robotic-dark) 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar styling */
+.menu {
+  background-color: var(--robotic-gray);
+}
+
+/* Homepage hero section */
+.hero {
+  background:
+    linear-gradient(135deg, var(--robotic-blue) 0%, var(--robotic-dark) 100%),
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InJvYm90LXBhdHRlcm4iIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxjaXJjbGUgY3g9IjEwIiBjeT0iMTAiIHI9IjEuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+CiAgICAgIDxyZWN0IHg9IjE1IiB5PSIxNSIgd2lkdGg9IjUiIGhlaWdodD0iNSIgZmlsbD0icmdiYSgyNSwyNSwyNSwwLjEpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcm9ib3QtcGF0dGVybikiLz4KPC9zdmc+');
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* Book chapter cards styling */
+.card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Article headers */
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  font-weight: 600;
+  color: var(--robotic-blue);
+}
+
+/* Blockquotes for important notes */
+blockquote {
+  border-left: 4px solid var(--robotic-accent);
+  background-color: var(--robotic-light);
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Code blocks */
+.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Footer enhancements */
+.footer--dark {
+  background: linear-gradient(135deg, var(--robotic-dark) 0%, var(--robotic-blue) 100%);
+}
+
+/* Button styling */
+.button--primary {
+  background-color: var(--robotic-accent);
+  border-color: var(--robotic-accent);
+}
+
+.button--primary:hover {
+  background-color: var(--robotic-dark);
+  border-color: var(--robotic-dark);
+}
+
+/* Custom banner for book title */
+.book-title-banner {
+  background: linear-gradient(90deg, var(--robotic-blue) 0%, var(--robotic-accent) 100%);
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-title-banner h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlighted sections */
+.robotic-section {
+  background: linear-gradient(to bottom, #ffffff 0%, var(--robotic-gray) 100%);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 5px solid var(--robotic-accent);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

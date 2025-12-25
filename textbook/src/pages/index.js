@@ -12,15 +12,17 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
+        <div className="book-title-banner">
+          <Heading as="h1" className="hero__title">
+            {siteConfig.title}
+          </Heading>
+        </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--primary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Read Book Chapters - 5min ⏱️
           </Link>
         </div>
       </div>
@@ -32,8 +34,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Humanoid Robotics & Physical AI Book`}
+      description="Mastering the integration of AI with physical systems and humanoid robotics">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

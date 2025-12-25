@@ -1,29 +1,47 @@
 ---
-
-id: intro-2
-title: Introduction to Physical AI & Humanoid Robotics
-slug: /introduction
 sidebar_position: 1
 ---
 
+# Tutorial Intro
 
+Let's discover **Docusaurus in less than 5 minutes**.
 
+## Getting Started
 
+Get started by **creating a new site**.
 
-# Introduction to Physical AI & Humanoid Robotics
+Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
 
-This course teaches how to bring AI into the physical world — connecting AI "brains" to robots' bodies.  
-You will learn simulation, robot middleware (ROS 2), perception, and how to make robots act from natural language commands.
+### What you'll need
 
-## Goals
-- Understand embodied intelligence and Physical AI.
-- Learn tools: ROS 2, Gazebo/Unity, NVIDIA Isaac.
-- Build a simulated humanoid that follows voice commands.
+- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
+  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
 
-## Weekly plan (short)
-- Weeks 1–2: Foundations
-- Weeks 3–5: ROS 2
-- Weeks 6–7: Gazebo simulation
-- Weeks 8–10: NVIDIA Isaac
-- Weeks 11–12: Humanoid development
-- Week 13: Conversational robotics & capstone
+## Generate a new site
+
+Generate a new Docusaurus site using the **classic template**.
+
+The classic template will automatically be added to your project after you run the command:
+
+```bash
+npm init docusaurus@latest my-website classic
+```
+
+You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+
+The command also installs all necessary dependencies you need to run Docusaurus.
+
+## Start your site
+
+Run the development server:
+
+```bash
+cd my-website
+npm run start
+```
+
+The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+
+The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+
+Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.

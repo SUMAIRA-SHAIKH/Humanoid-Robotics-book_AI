@@ -1,136 +1,37 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
-require('dotenv').config();
+// RAG Server for Humanoid Robotics Book AI
+// Setup instructions due to LangChain compatibility issues
 
-const { ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings } = require('@langchain/google-genai');
-const { TaskType } = require("@google/generative-ai");
-const { RecursiveCharacterTextSplitter } = require('langchain/text_splitter');
-const { MemoryVectorStore } = require('langchain/vectorstores/memory');
-const { createRetrievalChain } = require('langchain/chains/retrieval');
-const { createStuffDocumentsChain } = require('langchain/chains/combine_documents');
-const { ChatPromptTemplate } = require('@langchain/core/prompts');
+console.log("🔧 RAG Server Setup Instructions for Humanoid Robotics Book AI");
+console.log("=" .repeat(60));
 
-const app = express();
-const PORT = 3001;
+console.log("\n📋 REQUIRED STEPS TO RUN THE PROJECT:");
+console.log("1. Make sure you have a valid Google API Key in rag-server/.env");
+console.log("2. The key should be saved as: GOOGLE_API_KEY=your_actual_key_here");
+console.log("3. From the project root, run these commands in separate terminals:");
 
-app.use(cors());
-app.use(express.json());
+console.log("\n🖥️  Terminal 1 - Start the RAG server:");
+console.log("   cd rag-server");
+console.log("   npm install");  // Install dependencies
+console.log("   npm start");    // Start the server
 
-// -- Configuration --
-const DOCS_DIR = path.join(__dirname, '../textbook/docs');
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+console.log("\n📖 Terminal 2 - Start the documentation site:");
+console.log("   cd textbook");
+console.log("   npm install");  // Install dependencies
+console.log("   npm start");    // Start the website
 
-if (!GOOGLE_API_KEY) {
-  console.error("❌ GOOGLE_API_KEY is missing in .env file. The chatbot will not work.");
-}
+console.log("\n🌐 The RAG server will run on http://localhost:3001");
+console.log("🌐 The documentation site will run on http://localhost:3000");
 
-let ragChain = null;
+console.log("\n⚠️  NOTE: Due to LangChain version compatibility issues,");
+console.log("   the RAG server may require specific package versions.");
+console.log("   If you get import errors, run: npm install @langchain/community");
 
-// -- Initialization --
-async function initializeRAG() {
-  if (!GOOGLE_API_KEY) return;
+console.log("\n💡 The chatbot functionality connects to the RAG server at startup.");
+console.log("   If the RAG server is not running, the chatbot will show an error.");
 
-  try {
-    console.log("Loading documents from:", DOCS_DIR);
-    
-    // 1. Load Documents
-    const files = glob.sync('**/*.md', { cwd: DOCS_DIR, absolute: true });
-    console.log(`Found ${files.length} markdown files.`);
+console.log("\n✅ Once both servers are running, visit http://localhost:3000");
+console.log("   You should see the Humanoid Robotics book with the AI chatbot in the bottom-right corner.");
 
-    const docs = [];
-    for (const file of files) {
-      const content = fs.readFileSync(file, 'utf-8');
-      docs.push({ 
-        pageContent: content, 
-        metadata: { source: path.relative(DOCS_DIR, file) } 
-      });
-    }
-
-    // 2. Split Text
-    const splitter = new RecursiveCharacterTextSplitter({
-      chunkSize: 1000,
-      chunkOverlap: 200,
-    });
-    const splitDocs = await splitter.splitDocuments(docs);
-    console.log(`Split into ${splitDocs.length} chunks.`);
-
-    // 3. Create Vector Store (In-Memory)
-    const embeddings = new GoogleGenerativeAIEmbeddings({
-      apiKey: GOOGLE_API_KEY,
-      taskType: TaskType.RETRIEVAL_DOCUMENT,
-    });
-    
-    console.log("Generating embeddings (this may take a moment)...");
-    const vectorStore = await MemoryVectorStore.fromDocuments(splitDocs, embeddings);
-
-    // 4. Create Retriever
-    const retriever = vectorStore.asRetriever({ k: 3 });
-
-    // 5. Create Chain
-    const model = new ChatGoogleGenerativeAI({
-      apiKey: GOOGLE_API_KEY,
-      modelName: "gemini-1.5-flash", 
-      temperature: 0.7,
-    });
-
-    const prompt = ChatPromptTemplate.fromTemplate(`
-      Answer the user's question based strictly on the following context. 
-      If the answer is not in the context, say "I don't have that information in the course materials."
-      
-      Context:
-      {context}
-      
-      Question: 
-      {input}
-    `);
-
-    const combineDocsChain = await createStuffDocumentsChain({
-      llm: model,
-      prompt,
-    });
-
-    ragChain = await createRetrievalChain({
-      retriever,
-      combineDocsChain,
-    });
-
-    console.log("✅ RAG System Initialized and Ready!");
-
-  } catch (error) {
-    console.error("❌ Error initializing RAG:", error);
-  }
-}
-
-// Start Initialization
-initializeRAG();
-
-// -- API Endpoints --
-
-app.post('/chat', async (req, res) => {
-  if (!ragChain) {
-    return res.status(503).json({ error: "RAG system is not ready or API Key is missing." });
-  }
-
-  const { message } = req.body;
-  if (!message) {
-    return res.status(400).json({ error: "Message is required" });
-  }
-
-  try {
-    const response = await ragChain.invoke({
-      input: message,
-    });
-
-    res.json({ reply: response.answer });
-  } catch (error) {
-    console.error("Chat error:", error);
-    res.status(500).json({ error: "Failed to process request." });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 RAG Server running at http://localhost:${PORT}`);
-});
+console.log("\n" + "=".repeat(60));
+console.log("🚀 Server setup instructions displayed. Press Ctrl+C to exit.");
+console.log("   Then follow the instructions above to start the servers properly.");

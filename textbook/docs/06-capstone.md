@@ -1,6 +1,7 @@
 ---
+id: capstone
 title: Capstone — The Autonomous Humanoid
-slug: /capstone
+slug: /docs/capstone
 sidebar_position: 6
 ---
 
@@ -8,13 +9,27 @@ sidebar_position: 6
 
 Build a simulated humanoid that receives a voice command, plans actions, navigates, finds an object, and manipulates it.
 
-## Requirements
-- Use ROS 2 nodes for perception and control.
-- Use a planner (Nav2) for path planning.
-- Integrate LLM for planning from natural language.
-- Demonstrate in Gazebo or Isaac Sim.
+## Project Requirements
 
-## Deliverables
-- Working simulation demo (video ≤ 90s).
-- Public GitHub repo with code and README.
-- Short report describing architecture and lessons learned.
+- Use of ROS 2 for communication
+- Gazebo or Isaac Sim for environment
+- Voice command processing
+- Path planning and navigation
+- Object detection and manipulation
+- Humanoid robot control
+
+## Architecture
+
+- Speech-to-text interface
+- Language understanding module
+- Task planning system
+- Navigation stack
+- Manipulation controller
+- Humanoid robot model
+
+## Evaluation Criteria
+
+- Successful task completion
+- Robustness to environmental changes
+- Efficiency of execution
+- Safety considerations
