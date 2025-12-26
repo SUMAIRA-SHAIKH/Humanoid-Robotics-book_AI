@@ -1,23 +1,43 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer').themes.github;
-const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+// `@ts-check` enables type checking for this file.
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Humanoid Robotics AI',
-  tagline: 'AI Powered Robotics Knowledge',
-  url: 'http://localhost:3000',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  tagline: 'Comprehensive Guide to Humanoid Robotics',
   favicon: 'img/favicon.ico',
 
+  // Set the production url of your site here
+  url: 'https://your-humanoid-robotics-book-ai.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  organizationName: 'hackthon', // Usually your GitHub org/user name.
-  projectName: 'humanoid-robotics-book-ai', // Usually your repo name.
+  baseUrl: '/',
+
+  // GitHub pages deployment config.
+  organizationName: 'SUMAIRA-SHAIKH', // Usually your GitHub org/user name.
+  projectName: 'Humanoid-Robotics-book-AI', // Usually your repo name.
+
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+    mermaid: false,
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+  },
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
 
   presets: [
     [
@@ -25,14 +45,13 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs',
-          routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/YourName/Humanoid-Robotics-book-AI/edit/main/',
+          editUrl:
+            'https://github.com/SUMAIRA-SHAIKH/Humanoid-Robotics-book-AI/tree/main/textbook/',
         },
-        blog: false,
+        blog: false, // Disable blog if you're not using it
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -46,9 +65,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Humanoid Robotics AI',
+        title: 'Humanoid Robotics Book',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Humanoid Robotics Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -56,10 +75,10 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Docs',
+            label: 'Textbook',
           },
           {
-            href: 'https://github.com/YourName/Humanoid-Robotics-book-AI',
+            href: 'https://github.com/SUMAIRA-SHAIKH/Humanoid-Robotics-book-AI',
             label: 'GitHub',
             position: 'right',
           },
@@ -72,7 +91,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Docs',
+                label: 'Textbook',
                 to: '/docs/intro',
               },
             ],
@@ -88,10 +107,6 @@ const config = {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
               },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
             ],
           },
           {
@@ -99,16 +114,16 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/SUMAIRA-SHAIKH/Humanoid-Robotics-book-AI',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Humanoid Robotics AI. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer').themes.github,
+        darkTheme: require('prism-react-renderer').themes.dracula,
       },
     }),
 };

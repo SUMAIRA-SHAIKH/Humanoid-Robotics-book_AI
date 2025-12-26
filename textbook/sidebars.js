@@ -23,17 +23,6 @@ const sidebars = {
     'isaac',
     'vla',
     'capstone',
-    {
-      type: 'category',
-      label: 'Tutorial - Basics',
-      items: [
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/congratulations',
-      ],
-    },
   ],
 };
 

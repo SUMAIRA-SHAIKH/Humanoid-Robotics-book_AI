@@ -3,13 +3,14 @@
 const config = {
   title: 'Humanoid Robotics AI',
   tagline: 'Hackathon Project',
-  url: 'http://localhost:3000',
+  url: 'https://example.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
-  organizationName: 'YourName', // Usually your GitHub org/user
-  projectName: 'Humanoid-Robotics-book-AI', // Usually your repo name
+
+  organizationName: 'SUMAIRA-SHAIKH',
+  projectName: 'Humanoid-Robotics-book-AI',
 
   presets: [
     [
@@ -17,8 +18,9 @@ const config = {
       {
         docs: {
           path: 'textbook/docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/YourName/Humanoid-Robotics-book-AI/edit/main/',
+          editUrl: 'https://github.com/SUMAIRA-SHAIKH/Humanoid-Robotics-book-AI/',
         },
         blog: false,
         theme: {
@@ -27,6 +29,19 @@ const config = {
       },
     ],
   ],
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+    mermaid: false,
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+  },
 };
 
 module.exports = config;
+
